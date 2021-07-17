@@ -1,0 +1,48 @@
+<template>
+  <div id="app">
+    <div v-for="(chart, index) in charts" :key="index">
+      <highcharts :title="chart.title" :height="chart.height" :data="chart.data"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import Chart from "./components/HcChartComponent";
+
+export default {
+  name: "App",
+  components: {
+    highcharts: Chart
+  },
+  data() {
+    return {
+      charts: [
+        {
+          title: "chart1",
+          height: 300,
+          data: [100, 103, 97, 66, 79]
+        },
+        {
+          title: "chart2",
+          height: 400
+        },
+        {
+          title: "chart3",
+          height: 200
+        }
+      ]
+    };
+  }
+};
+</script>
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
